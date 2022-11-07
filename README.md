@@ -31,6 +31,11 @@ endpoints:
   
   POST - https://l6ibrxdj04.execute-api.us-west-2.amazonaws.com/personas
   
+  {
+    "nombre": "Maria",
+    "edad": "24"
+  }
+  
   GET - https://l6ibrxdj04.execute-api.us-west-2.amazonaws.com/personas
   
   GET - https://l6ibrxdj04.execute-api.us-west-2.amazonaws.com/personas/{id}
