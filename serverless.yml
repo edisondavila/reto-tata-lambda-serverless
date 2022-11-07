@@ -1,0 +1,65 @@
+service: reto-tata-lambda-serverless
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-west-2
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:*
+      Resource:
+        - arn:aws:dynamodb:us-east-1:056712157713:table/persona 
+
+functions:
+  hello:
+    handler: src/hello.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+  agregarPersona:
+    handler: src/addPersona.addPersona
+    events:
+      - httpApi:
+          path: /personas
+          method: post
+  listarPersonas:
+    handler: src/getPersonas.getPersonas
+    events:
+      - httpApi:
+          path: /personas
+          method: get
+  listarPersona:
+    handler: src/getPersona.getPersona
+    events:
+      - httpApi:
+          path: /personas/{id}
+          method: get
+  actualizarPersona:
+    handler: src/updatePersona.updatePersona
+    events:
+      - httpApi:
+          path: /personas/{id}
+          method: put
+  eliminarPersona:
+    handler: src/deletePersona.deletePersona
+    events:
+      - httpApi:
+          path: /personas/{id}
+          method: delete
+
+resources:
+  Resources:
+    PersonaTabla:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: "persona"
