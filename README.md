@@ -19,20 +19,35 @@ This template does not include any kind of persistence (database). For more adva
 ## Usage
 
 service: reto-tata-lambda-serverless
+
 stage: dev
+
 region: us-west-2
+
 stack: reto-tata-lambda-serverless-dev
+
 endpoints:
-  GET - https://l6ibrxdj04.execute-api.us-west-2.amazonaws.com/
+
+  
   POST - https://l6ibrxdj04.execute-api.us-west-2.amazonaws.com/personas
+  
   GET - https://l6ibrxdj04.execute-api.us-west-2.amazonaws.com/personas
+  
   GET - https://l6ibrxdj04.execute-api.us-west-2.amazonaws.com/personas/{id}
+  
   PUT - https://l6ibrxdj04.execute-api.us-west-2.amazonaws.com/personas/{id}
+  
   DELETE - https://l6ibrxdj04.execute-api.us-west-2.amazonaws.com/personas/{id}
+  
 functions:
-  hello: reto-tata-lambda-serverless-dev-hello
+
   agregarPersona: reto-tata-lambda-serverless-dev-agregarPersona
+  
   listarPersonas: reto-tata-lambda-serverless-dev-listarPersonas
+  
   listarPersona: reto-tata-lambda-serverless-dev-listarPersona
+  
   actualizarPersona: reto-tata-lambda-serverless-dev-actualizarPersona
+  
   eliminarPersona: reto-tata-lambda-serverless-dev-eliminarPersona
+  
